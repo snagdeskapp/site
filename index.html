@@ -1,414 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SnagDesk | Snag lists, sorted.</title>
-<meta name="description" content="Capture defects on site, annotate photos, and email a polished PDF report, all without leaving your phone." />
+<title>Snagging App for UK Builders & Contractors | SnagDesk</title>
+<meta name="description" content="SnagDesk is the offline snagging app for UK builders and contractors. Capture a defect, mark it up, and email a branded PDF report before you leave site." />
+<link rel="canonical" href="https://snagdesk.co.uk/" />
 <link rel="icon" href="favicon.png" type="image/png" />
-<meta property="og:title" content="SnagDesk | Snag lists, sorted." />
-<meta property="og:description" content="Capture defects on site, annotate photos, and email a polished PDF report, all without leaving your phone." />
+<link rel="stylesheet" href="styles.css" />
+<meta property="og:title" content="Snagging app for UK builders & contractors | SnagDesk" />
+<meta property="og:description" content="Capture a defect, mark it up, and email a branded PDF snag report before you leave site. Works offline, no account needed." />
 <meta property="og:type" content="website" />
-<style>
-  :root {
-    --bg: #EFF2E8;
-    --surface: #FFFFFF;
-    --border: #DCE0D2;
-    --text: #1F2A22;
-    --text-muted: #5A6B5F;
-    --text-subtle: #8A9690;
-    --brand: #1F3A2B;
-    --lime: #C8E64A;
-    --lime-ink: #1F2A06;
-    --danger: #C2362B;
-    --radius-lg: 22px;
-    --radius-md: 16px;
-    --radius-sm: 12px;
-    --maxw: 1080px;
-    --shadow-sm: 0 1px 2px rgba(31, 42, 34, 0.04), 0 4px 16px rgba(31, 42, 34, 0.05);
-    --shadow-md: 0 2px 4px rgba(31, 42, 34, 0.05), 0 12px 36px rgba(31, 42, 34, 0.08);
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  a { color: inherit; }
-
-  .wrap {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: saturate(180%) blur(16px);
-    -webkit-backdrop-filter: saturate(180%) blur(16px);
-    background: rgba(239, 242, 232, 0.78);
-    border-bottom: 1px solid transparent;
-    transition: border-color .2s ease;
-  }
-  header.scrolled { border-bottom-color: var(--border); }
-
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    color: var(--text);
-  }
-  .brand .logo {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-    flex: none;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 15px;
-    transition: color .15s ease;
-  }
-  .nav-links a:hover { color: var(--text); }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    border-radius: 999px;
-    padding: 11px 20px;
-    transition: transform .12s ease, box-shadow .2s ease, background .15s ease;
-  }
-  .btn-lime {
-    background: var(--lime);
-    color: var(--lime-ink);
-    box-shadow: 0 1px 2px rgba(31,42,6,.12);
-  }
-  .btn-lime:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(200, 230, 74, .45); }
-
-  .nav .btn { padding: 9px 18px; }
-  @media (max-width: 720px) { .nav-links { display: none; } }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    padding: 64px 0 24px;
-    text-align: center;
-  }
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 26px;
-    box-shadow: var(--shadow-sm);
-  }
-  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 3px rgba(200,230,74,.25); }
-
-  h1 {
-    font-size: clamp(40px, 7vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    font-weight: 800;
-    margin: 0 0 22px;
-    color: var(--brand);
-  }
-  h1 .accent {
-    background: linear-gradient(180deg, transparent 62%, var(--lime) 62%);
-    padding: 0 4px;
-  }
-
-  .subhead {
-    font-size: clamp(17px, 2.4vw, 21px);
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 36px;
-  }
-
-  .cta-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  /* Apple App Store badge: official unmodified artwork (appstore-badge.svg) */
-  .appstore-badge {
-    display: inline-flex;
-    border-radius: 9px;
-    transition: transform .12s ease, box-shadow .2s ease;
-  }
-  .appstore-badge:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
-  .badge-svg { height: 52px; width: 155.6px; display: block; }
-
-  .cta-note { color: var(--text-subtle); font-size: 14px; font-weight: 500; }
-
-  /* ---------- Phone mockups ---------- */
-  .mockups {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 22px;
-    margin-top: 84px;
-    padding-bottom: 8px;
-  }
-  .phone {
-    width: 232px;
-    aspect-ratio: 9 / 19.5;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 38px;
-    padding: 10px;
-    box-shadow: var(--shadow-md);
-    flex: none;
-  }
-  .phone.center { transform: translateY(-26px) scale(1.04); z-index: 2; }
-  .phone img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 29px;
-    display: block;
-    border: 1px solid var(--border);
-  }
-  .phone-screen {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    background:
-      repeating-linear-gradient(135deg, rgba(31,58,43,.025) 0 12px, transparent 12px 24px),
-      var(--bg);
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--text-subtle);
-  }
-  .phone-screen .ph-icon { width: 44px; height: 44px; opacity: .6; }
-  .phone-screen .ph-label { font-size: 13px; font-weight: 600; letter-spacing: .01em; }
-  @media (max-width: 880px) {
-    .mockups { gap: 14px; }
-    .phone { width: 30vw; }
-    .phone.center { transform: translateY(-16px) scale(1.04); }
-  }
-  @media (max-width: 560px) {
-    .mockups { gap: 12px; }
-    .phone { width: 40vw; padding: 7px; border-radius: 30px; }
-    .phone:first-child { display: none; }
-    .phone.center { transform: none; }
-  }
-
-  /* ---------- Section scaffolding ---------- */
-  section { padding: 88px 0; }
-  .section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
-  .section-tag {
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-subtle);
-    margin-bottom: 14px;
-  }
-  h2 {
-    font-size: clamp(28px, 4.5vw, 42px);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    font-weight: 800;
-    margin: 0 0 14px;
-    color: var(--brand);
-  }
-  .section-head p { color: var(--text-muted); font-size: 18px; margin: 0; }
-
-  /* ---------- Features ---------- */
-  .features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-  .feature {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 30px 28px;
-    box-shadow: var(--shadow-sm);
-    transition: transform .18s ease, box-shadow .2s ease;
-  }
-  .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-  .feature .icon {
-    width: 52px; height: 52px;
-    border-radius: 14px;
-    background: var(--lime);
-    color: var(--lime-ink);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-  }
-  .feature .icon svg { width: 26px; height: 26px; }
-  .feature h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--text); }
-  .feature p { color: var(--text-muted); font-size: 15.5px; margin: 0; }
-  @media (max-width: 820px) { .features { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
-
-  /* ---------- How it works ---------- */
-  .how { background: var(--brand); color: #EAF0E4; border-radius: 0; }
-  .how h2, .how .section-tag { color: #fff; }
-  .how .section-tag { color: var(--lime); }
-  .how .section-head p { color: rgba(234,240,228,.72); }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    counter-reset: step;
-  }
-  .step {
-    position: relative;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: var(--radius-lg);
-    padding: 30px 28px;
-  }
-  .step .num {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: var(--lime);
-    color: var(--lime-ink);
-    font-weight: 800;
-    font-size: 20px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-  }
-  .step h3 { font-size: 19px; font-weight: 700; margin: 0 0 8px; color: #fff; letter-spacing: -0.01em; }
-  .step p { color: rgba(234,240,228,.72); font-size: 15.5px; margin: 0; }
-  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
-
-  /* ---------- FAQ ---------- */
-  .faq-list { max-width: 760px; margin: 0 auto; }
-  details {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 0 24px;
-    margin-bottom: 12px;
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-  }
-  details[open] { box-shadow: var(--shadow-md); }
-  summary {
-    list-style: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--text);
-    padding: 22px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    letter-spacing: -0.01em;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary .chev {
-    flex: none;
-    width: 22px; height: 22px;
-    color: var(--text-subtle);
-    transition: transform .2s ease;
-  }
-  details[open] summary .chev { transform: rotate(180deg); color: var(--brand); }
-  details p {
-    margin: 0;
-    padding: 0 0 24px;
-    color: var(--text-muted);
-    font-size: 15.5px;
-    max-width: 90%;
-  }
-
-  /* ---------- Final CTA ---------- */
-  .final-cta { text-align: center; }
-  .final-cta-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 64px 32px;
-    box-shadow: var(--shadow-md);
-    position: relative;
-    overflow: hidden;
-  }
-  .final-cta-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(120% 120% at 50% -20%, rgba(200,230,74,.18), transparent 55%);
-    pointer-events: none;
-  }
-  .final-cta h2 { margin-bottom: 12px; }
-  .final-cta p { color: var(--text-muted); font-size: 18px; max-width: 480px; margin: 0 auto 32px; }
-
-  /* ---------- Footer ---------- */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 48px 0;
-  }
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; color: var(--text); }
-  .footer-brand .logo { width: 28px; height: 28px; border-radius: 7px; }
-  .footer-links { display: flex; gap: 26px; flex-wrap: wrap; }
-  .footer-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 14.5px; transition: color .15s ease; }
-  .footer-links a:hover { color: var(--text); }
-  .footer-copy { color: var(--text-subtle); font-size: 13.5px; width: 100%; padding-top: 8px; }
-</style>
+<meta property="og:url" content="https://snagdesk.co.uk/" />
+<meta property="og:image" content="https://snagdesk.co.uk/screen-markup.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://snagdesk.co.uk/#organisation",
+      "name": "SnagDesk",
+      "url": "https://snagdesk.co.uk/",
+      "logo": "https://snagdesk.co.uk/favicon.png",
+      "email": "snagdeskapp@gmail.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://snagdesk.co.uk/#website",
+      "name": "SnagDesk",
+      "url": "https://snagdesk.co.uk/",
+      "publisher": { "@id": "https://snagdesk.co.uk/#organisation" },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SnagDesk",
+      "operatingSystem": "iOS 26",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://snagdesk.co.uk/",
+      "downloadUrl": "https://apps.apple.com/app/id6782388367",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does SnagDesk work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There is no account and no sign-in. Everything is stored on your iPhone, so it works with no signal on site and syncs nowhere." } },
+    { "@type": "Question", "name": "Is it iOS only?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, SnagDesk is built for iPhone and needs iOS 26 or later. An iPad and Android version are not available yet." } },
+    { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "On your iPhone, in the app's local storage. It is included in your iCloud device backup if you have that switched on in iOS Settings. We never see it." } },
+    { "@type": "Question", "name": "Can I brand the reports?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your company name, logo, prepared-by signature and footer text are all editable in Settings and appear on every report." } },
+    { "@type": "Question", "name": "Can I export to Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Reports export as a PDF, which is what clients expect for a snag report. A spreadsheet export is not available yet." } },
+    { "@type": "Question", "name": "How much does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "SnagDesk is free during launch. It is a one-time purchase with no subscription, and we will confirm the price before that changes." } },
+    { "@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": { "@type": "Answer", "text": "iPhone running iOS 26 or later." } }
+  ]
+}
+</script>
 </head>
 <body>
 
-<!-- Reusable logo defs -->
+<!-- Reusable SVG defs: logo + App Store badge -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="snag-logo" viewBox="0 0 1024 1024">
@@ -423,11 +78,11 @@
         <g>
           <path d="M110.13477,0H9.53468c-.3667,0-.729,0-1.09473.002-.30615.002-.60986.00781-.91895.0127A13.21476,13.21476,0,0,0,5.5171.19141a6.66509,6.66509,0,0,0-1.90088.627A6.43779,6.43779,0,0,0,1.99757,1.99707,6.25844,6.25844,0,0,0,.81935,3.61816a6.60119,6.60119,0,0,0-.625,1.90332,12.993,12.993,0,0,0-.1792,2.002C.00587,7.83008.00489,8.1377,0,8.44434V31.5586c.00489.3105.00587.6113.01515.9219a12.99232,12.99232,0,0,0,.1792,2.0019,6.58756,6.58756,0,0,0,.625,1.9043A6.20778,6.20778,0,0,0,1.99757,38.001a6.27445,6.27445,0,0,0,1.61865,1.1787,6.70082,6.70082,0,0,0,1.90088.6308,13.45514,13.45514,0,0,0,2.0039.1768c.30909.0068.6128.0107.91895.0107C8.80567,40,9.168,40,9.53468,40H110.13477c.3594,0,.7246,0,1.084-.002.3047,0,.6172-.0039.9219-.0107a13.279,13.279,0,0,0,2-.1768,6.80432,6.80432,0,0,0,1.9082-.6308,6.27742,6.27742,0,0,0,1.6172-1.1787,6.39482,6.39482,0,0,0,1.1816-1.6143,6.60413,6.60413,0,0,0,.6191-1.9043,13.50643,13.50643,0,0,0,.1856-2.0019c.0039-.3106.0039-.6114.0039-.9219.0078-.3633.0078-.7246.0078-1.0938V9.53613c0-.36621,0-.72949-.0078-1.09179,0-.30664,0-.61426-.0039-.9209a13.5071,13.5071,0,0,0-.1856-2.002,6.6177,6.6177,0,0,0-.6191-1.90332,6.46619,6.46619,0,0,0-2.7988-2.7998,6.76754,6.76754,0,0,0-1.9082-.627,13.04394,13.04394,0,0,0-2-.17676c-.3047-.00488-.6172-.01074-.9219-.01269-.3594-.002-.7246-.002-1.084-.002Z" style="fill: #a6a6a6"/>
           <path d="M8.44483,39.125c-.30468,0-.602-.0039-.90429-.0107a12.68714,12.68714,0,0,1-1.86914-.1631,5.88381,5.88381,0,0,1-1.65674-.5479,5.40573,5.40573,0,0,1-1.397-1.0166,5.32082,5.32082,0,0,1-1.02051-1.3965,5.72186,5.72186,0,0,1-.543-1.6572,12.41351,12.41351,0,0,1-.1665-1.875c-.00634-.2109-.01464-.9131-.01464-.9131V8.44434S.88185,7.75293.8877,7.5498a12.37039,12.37039,0,0,1,.16553-1.87207,5.7555,5.7555,0,0,1,.54346-1.6621A5.37349,5.37349,0,0,1,2.61183,2.61768,5.56543,5.56543,0,0,1,4.01417,1.59521a5.82309,5.82309,0,0,1,1.65332-.54394A12.58589,12.58589,0,0,1,7.543.88721L8.44532.875H111.21387l.9131.0127a12.38493,12.38493,0,0,1,1.8584.16259,5.93833,5.93833,0,0,1,1.6709.54785,5.59374,5.59374,0,0,1,2.415,2.41993,5.76267,5.76267,0,0,1,.5352,1.64892,12.995,12.995,0,0,1,.1738,1.88721c.0029.2832.0029.5874.0029.89014.0079.375.0079.73193.0079,1.09179V30.4648c0,.3633,0,.7178-.0079,1.0752,0,.3252,0,.6231-.0039.9297a12.73126,12.73126,0,0,1-.1709,1.8535,5.739,5.739,0,0,1-.54,1.67,5.48029,5.48029,0,0,1-1.0156,1.3857,5.4129,5.4129,0,0,1-1.3994,1.0225,5.86168,5.86168,0,0,1-1.668.5498,12.54218,12.54218,0,0,1-1.8692.1631c-.2929.0068-.5996.0107-.8974.0107l-1.084.002Z"/>
-          <g id="_Group_" data-name="&lt;Group&gt;">
-            <g id="_Group_2" data-name="&lt;Group&gt;">
-              <g id="_Group_3" data-name="&lt;Group&gt;">
-                <path id="_Path_" data-name="&lt;Path&gt;" d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z" style="fill: #fff"/>
-                <path id="_Path_2" data-name="&lt;Path&gt;" d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z" style="fill: #fff"/>
+          <g>
+            <g>
+              <g>
+                <path d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z" style="fill: #fff"/>
+                <path d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z" style="fill: #fff"/>
               </g>
             </g>
             <g>
@@ -442,7 +97,7 @@
             </g>
           </g>
         </g>
-        <g id="_Group_4" data-name="&lt;Group&gt;">
+        <g>
           <g>
             <path d="M37.82619,8.731a2.63964,2.63964,0,0,1,2.80762,2.96484c0,1.90625-1.03027,3.002-2.80762,3.002H35.67092V8.731Zm-1.22852,5.123h1.125a1.87588,1.87588,0,0,0,1.96777-2.146,1.881,1.881,0,0,0-1.96777-2.13379h-1.125Z" style="fill: #fff"/>
             <path d="M41.68068,12.44434a2.13323,2.13323,0,1,1,4.24707,0,2.13358,2.13358,0,1,1-4.24707,0Zm3.333,0c0-.97607-.43848-1.54687-1.208-1.54687-.77246,0-1.207.5708-1.207,1.54688,0,.98389.43457,1.55029,1.207,1.55029C44.57522,13.99463,45.01369,13.42432,45.01369,12.44434Z" style="fill: #fff"/>
@@ -464,73 +119,77 @@
   </defs>
 </svg>
 
-<header id="header">
+<header class="site-header" id="header">
   <div class="wrap nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="/">
       <svg class="logo"><use href="#snag-logo"/></svg>
       SnagDesk
     </a>
-    <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#how">How it works</a>
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#faq">FAQ</a>
     </nav>
-    <a class="btn btn-lime" href="#download">Download</a>
+    <div class="nav-right">
+      <a class="btn btn-lime" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main>
   <!-- Hero -->
-  <section class="hero" id="download">
+  <section class="hero">
     <div class="wrap">
-      <span class="eyebrow"><span class="dot"></span> Built for iPhone · Works offline</span>
-      <h1>Snag lists,<br><span class="accent">sorted.</span></h1>
-      <p class="subhead">Capture defects on site, annotate photos, and email a polished PDF report. All without leaving your phone.</p>
+      <span class="eyebrow"><span class="dot"></span> Built for iPhone · works offline · UK</span>
+      <h1>Snag it, mark it up, send the report before you leave site.</h1>
+      <p class="subhead">SnagDesk is the snagging app built for UK builders, contractors and inspectors. Everything stays on your iPhone, and it works with no signal on site.</p>
 
       <div class="cta-row">
         <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
           <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="#appstore-badge"/></svg>
         </a>
+        <a class="btn btn-ghost" href="#sample-report">See a sample report</a>
       </div>
 
       <!-- Phone mockups (real app screenshots) -->
       <div class="mockups">
         <div class="phone">
-          <img src="screen-projects.png" alt="SnagDesk projects list on iPhone" loading="lazy" />
+          <img src="screen-projects.png" alt="SnagDesk projects list showing UK snagging jobs on iPhone" loading="lazy" width="1206" height="2622" />
         </div>
         <div class="phone center">
-          <img src="screen-markup.png" alt="Annotating a defect photo in SnagDesk" loading="lazy" />
+          <img src="screen-markup.png" alt="Marking up a defect photo with a red box inside SnagDesk" loading="lazy" width="1206" height="2622" />
         </div>
         <div class="phone">
-          <img src="screen-report.png" alt="Branded PDF snag report in SnagDesk" loading="lazy" />
+          <img src="screen-report.png" alt="Branded PDF snag report generated by SnagDesk" loading="lazy" width="1206" height="2622" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features">
+  <!-- The problem -->
+  <section id="problem">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">Why SnagDesk</div>
-        <h2>Everything you need on site. Nothing you don't.</h2>
-        <p>Three taps from spotting a defect to a report in your client's inbox.</p>
+        <div class="section-tag">The problem</div>
+        <h2>Snagging doesn't end when the walk does</h2>
+        <p>The defects are the easy part. It's everything after that eats your evening.</p>
       </div>
-      <div class="features">
-        <div class="feature">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <h3>Photo + markup, in one tap</h3>
-          <p>Take a photo, draw a box around the defect, done. No fiddling with separate apps.</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3>Photos lost in the camera roll</h3>
+          <p>Shots of every defect end up buried between family photos and WhatsApp forwards, with nothing tying them to a room.</p>
         </div>
-        <div class="feature">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
-          <h3>Branded PDF reports</h3>
-          <p>One tap to generate a multi-page report with your company name, logo, signature, and footer. Email it directly to the client.</p>
+        <div class="problem-card">
+          <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+          <h3>The 9pm retype</h3>
+          <p>You get home and copy the whole snag list into a spreadsheet by hand, hoping you can still read your own notes.</p>
         </div>
-        <div class="feature">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Works offline, stays private</h3>
-          <p>Everything stays on your iPhone. No accounts, no cloud sync, no tracking. Your data is yours.</p>
+        <div class="problem-card">
+          <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Reports that arrive late</h3>
+          <p>The client waits three days for a write-up, and by then two of the snags have already been argued over on site.</p>
         </div>
       </div>
     </div>
@@ -541,23 +200,170 @@
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">How it works</div>
-        <h2>From site visit to signed-off report</h2>
+        <h2>From site walk to sent report</h2>
+        <p>Three steps, all on your phone, all before you get back to the van.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <h3>Create a project</h3>
-          <p>Name, client, site address, and inspection date. Set up in seconds.</p>
+          <h3>Set up the project</h3>
+          <p>Add the client, the site address and the inspection date. Everything you log lands under the right job.</p>
+          <div class="step-img"><img src="screen-projects.png" alt="Creating a snagging project in SnagDesk" loading="lazy" width="1206" height="2622" /></div>
         </div>
         <div class="step">
           <div class="num">2</div>
-          <h3>Log defects on site</h3>
-          <p>Photo + title + location + notes. Annotate directly on the image as you walk the site.</p>
+          <h3>Capture and mark up each snag</h3>
+          <p>Photograph the defect, draw straight on the image, and add a location and a note. It all saves on the spot.</p>
+          <div class="step-img"><img src="screen-markup.png" alt="Adding a red box to a defect photo in SnagDesk" loading="lazy" width="1206" height="2622" /></div>
         </div>
         <div class="step">
           <div class="num">3</div>
-          <h3>Export &amp; send</h3>
-          <p>Generate a branded PDF report, ready to email straight from your phone.</p>
+          <h3>Generate the report</h3>
+          <p>One tap turns the list into a branded, multi-page PDF, ready to email before you have left the building.</p>
+          <div class="step-img"><img src="screen-report.png" alt="A finished PDF snag report ready to send" loading="lazy" width="1206" height="2622" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample report -->
+  <section id="sample-report" class="sample">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Sample report</div>
+        <h2>The report your client actually opens</h2>
+        <p>A clean, branded PDF with your company name, your logo, and a photo of every snag in its location.</p>
+      </div>
+      <div class="report-frame">
+        <img src="screen-report.png" alt="Example SnagDesk PDF report showing a bath seal defect with photos and location" loading="lazy" width="1206" height="2622" />
+      </div>
+      <p class="note">Generated on your iPhone in seconds, ready to email straight from the app.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Features</div>
+        <h2>Everything the walk needs. Nothing it doesn't.</h2>
+        <p>Built for one job: getting an accurate, photographed snag list off site as a finished report.</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3>Photo capture &amp; markup</h3>
+          <p>Shoot the defect and draw straight on the photo. Box it, circle it, or arrow to it.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <h3>Branded PDF reports</h3>
+          <p>Your company name, logo, prepared-by signature and footer on every page.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Works offline</h3>
+          <p>No account, no signal needed. Everything is stored on your iPhone.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13 6-3m-6 3V7m6 10 4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg></div>
+          <h3>Projects, plots &amp; locations</h3>
+          <p>Group snags by job and location, so nothing gets logged against the wrong room.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+          <h3>Notes on every snag</h3>
+          <p>Add a title, a location and a description to each defect while the detail is still fresh.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Your data stays yours</h3>
+          <p>No cloud sync and no tracking. Your reports never leave the phone unless you send them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section id="audience">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Who it's for</div>
+        <h2>Made for the people who walk sites</h2>
+      </div>
+      <div class="who">
+        <div class="who-card">
+          <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l8-5 8 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
+          <h3>Contractors</h3>
+          <p>Close out defects fast and hand over with a clean record.</p>
+        </div>
+        <div class="who-card">
+          <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6h6"/><path d="M4 22V4a2 2 0 0 1 2-2h8l6 6v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>Builders</h3>
+          <p>Log snags room by room without stopping the job.</p>
+        </div>
+        <div class="who-card">
+          <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <h3>Snagging inspectors</h3>
+          <p>Produce a professional, branded report on every visit.</p>
+        </div>
+        <div class="who-card">
+          <div class="wc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Site managers</h3>
+          <p>Keep an accurate defect list across every plot on site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SnagDesk -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Why SnagDesk</div>
+        <h2>Better than the old way</h2>
+        <p>How a walk logged in SnagDesk compares with the two tools it replaces.</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <colgroup><col><col><col><col class="snagdesk-col"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Pen &amp; paper</th>
+              <th scope="col">Spreadsheet</th>
+              <th scope="col" class="snagdesk">SnagDesk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Photos linked to each snag</th><td>No</td><td>Manual</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row">Markup on the photo</th><td>No</td><td>No</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row">Report ready on site</th><td>No</td><td>Later, at a desk</td><td class="yes">In under a minute</td></tr>
+            <tr><th scope="row">Consistent format every time</th><td>Depends on handwriting</td><td>If the template survives</td><td class="yes">Every report</td></tr>
+            <tr><th scope="row">Works with no signal</th><td>Yes</td><td>Sometimes</td><td class="yes">Yes</td></tr>
+            <tr><th scope="row">Cost</th><td>Cheap, slow</td><td>Free-ish, fiddly</td><td class="yes">Free during launch</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing teaser -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Pricing</div>
+        <h2>Simple pricing</h2>
+        <p>No account to create, no card to enter. Download it and start your next walk.</p>
+      </div>
+      <div class="pricing-teaser">
+        <div class="kicker">During launch</div>
+        <div class="price">Free</div>
+        <p class="price-sub">Every feature, no subscription. We'll confirm pricing before it changes.</p>
+        <div class="cta-row">
+          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="#appstore-badge"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -572,34 +378,46 @@
       </div>
       <div class="faq-list">
         <details open>
-          <summary>Do I need an account?
+          <summary>Does SnagDesk work offline?
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p>No. SnagDesk works entirely offline. Open the app and start logging.</p>
+          <div class="faq-body"><p>Yes. There is no account and no sign-in. Everything is stored on your iPhone, so it works with no signal on site and syncs nowhere.</p></div>
         </details>
         <details>
-          <summary>Is my data backed up?
+          <summary>Is it iOS only?
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p>Your data lives in your iPhone's local storage and is included in iCloud device backups (if enabled in iOS Settings). We never see your data.</p>
+          <div class="faq-body"><p>Yes, SnagDesk is built for iPhone and needs iOS 26 or later. An iPad and Android version are not available yet.</p></div>
         </details>
         <details>
-          <summary>Can I customize the PDF report?
+          <summary>Where is my data stored?
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p>Yes. Company name, logo, prepared-by signature, and footer text are all editable in Settings.</p>
+          <div class="faq-body"><p>On your iPhone, in the app's local storage. It is included in your iCloud device backup if you have that switched on in iOS Settings. We never see it.</p></div>
+        </details>
+        <details>
+          <summary>Can I brand the reports?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body"><p>Yes. Your company name, logo, prepared-by signature and footer text are all editable in Settings and appear on every report.</p></div>
+        </details>
+        <details>
+          <summary>Can I export to Excel?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body"><p>Reports export as a PDF, which is what clients expect for a snag report. A spreadsheet export is not available yet.</p></div>
         </details>
         <details>
           <summary>How much does it cost?
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p>SnagDesk is a one-time purchase with no subscriptions. (Free during launch.)</p>
+          <div class="faq-body"><p>SnagDesk is free during launch. It is a one-time purchase with no subscription, and we will confirm the price before that changes.</p></div>
         </details>
         <details>
           <summary>Which devices are supported?
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p>iPhone running iOS 26 or later.</p>
+          <div class="faq-body"><p>iPhone running iOS 26 or later.</p></div>
         </details>
       </div>
     </div>
@@ -609,35 +427,59 @@
   <section class="final-cta">
     <div class="wrap">
       <div class="final-cta-card">
-        <h2>Ready to clear your snag list?</h2>
-        <p>Download SnagDesk and turn your next site visit into a finished report.</p>
-        <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store" style="margin:0 auto;">
-          <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="#appstore-badge"/></svg>
-        </a>
+        <h2>Clear your next snag list before you leave site</h2>
+        <p>Download SnagDesk and turn your next walk into a finished report.</p>
+        <div class="cta-row">
+          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="#appstore-badge"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <svg class="logo"><use href="#snag-logo"/></svg>
-      SnagDesk
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="/">
+          <svg class="logo"><use href="#snag-logo"/></svg>
+          SnagDesk
+        </a>
+        <p class="footer-blurb">The offline snagging app for UK builders, contractors and inspectors. Capture, mark up and report without leaving site.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="mailto:snagdeskapp@gmail.com">snagdeskapp@gmail.com</a></li>
+        </ul>
+      </div>
     </div>
-    <nav class="footer-links">
-      <a href="privacy.html">Privacy</a>
-      <a href="support.html">Support</a>
-      <a href="mailto:snagdeskapp@gmail.com">snagdeskapp@gmail.com</a>
-    </nav>
-    <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
 <script>
-  // subtle header border on scroll
-  const header = document.getElementById('header');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 </script>
