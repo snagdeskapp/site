@@ -19,12 +19,16 @@ collections:
     permalink: /glossary/:name/
 
 defaults:
+  # Blog and glossary are hidden for now: no nav links, not in the sitemap,
+  # and noindex so they are not picked up while hidden.
   - scope: { path: "", type: "posts" }
     values:
       layout: post
+      noindex: true
   - scope: { path: "", type: "glossary" }
     values:
       layout: glossary-term
+      noindex: true
 
 exclude:
   - README.md

@@ -11,10 +11,5 @@ sitemap: false
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
 {%- endif %}
 {%- endfor %}
-{%- for post in site.posts %}
-  <url><loc>{{ site.url }}{{ post.url }}</loc><lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod></url>
-{%- endfor %}
-{%- for t in site.glossary %}
-  <url><loc>{{ site.url }}{{ t.url }}</loc></url>
-{%- endfor %}
+{%- comment %} Blog and glossary are hidden for now, so they are excluded. {% endcomment %}
 </urlset>
