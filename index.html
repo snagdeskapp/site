@@ -7,7 +7,7 @@
 <meta name="description" content="SnagDesk is the offline snagging app for UK builders and contractors. Capture a defect, mark it up, and email a branded PDF report before you leave site." />
 <link rel="canonical" href="https://snagdesk.co.uk/" />
 <link rel="icon" href="favicon.png" type="image/png" />
-<link rel="stylesheet" href="styles.css?v=4" />
+<link rel="stylesheet" href="styles.css?v=5" />
 <meta property="og:title" content="Snagging app for UK builders & contractors | SnagDesk" />
 <meta property="og:description" content="Capture a defect, mark it up, and email a branded PDF snag report before you leave site. Works offline, no account needed." />
 <meta property="og:type" content="website" />
@@ -125,15 +125,36 @@
       <svg class="logo"><use href="#snag-logo"/></svg>
       SnagDesk
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/#how">How it works</a>
-      <a href="/#features">Features</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="/#faq">FAQ</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="nav-menu" id="navMenu" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="has-dropdown">
+          <button class="nav-trigger" aria-expanded="false">Product
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="/snagging-app/"><strong>Snagging software</strong><span>What SnagDesk is and who it's for</span></a>
+            <a href="/features/photo-markup/"><strong>Photo capture &amp; markup</strong><span>Shoot and annotate defects on site</span></a>
+            <a href="/features/pdf-reports/"><strong>Branded PDF reports</strong><span>One-tap, client-ready reports</span></a>
+            <a href="/features/offline/"><strong>Works offline</strong><span>No account, no signal needed</span></a>
+          </div>
+        </li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li class="has-dropdown">
+          <button class="nav-trigger" aria-expanded="false">Company
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="/about/"><strong>About</strong><span>Who is behind SnagDesk</span></a>
+            <a href="/contact/"><strong>Contact</strong><span>Get in touch with us</span></a>
+            <a href="/support.html"><strong>Support</strong><span>Help and common questions</span></a>
+          </div>
+        </li>
+      </ul>
+      <a class="btn btn-lime nav-cta" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
     </nav>
-    <div class="nav-right">
-      <a class="btn btn-lime" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
-    </div>
   </div>
 </header>
 
@@ -454,37 +475,42 @@
       <div class="footer-col">
         <h4>Product</h4>
         <ul>
-          <li><a href="/#how">How it works</a></li>
-          <li><a href="/#features">Features</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
-          <li><a href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a></li>
+          <li><a href="/snagging-app/">Snagging software</a></li>
+          <li><a href="/features/photo-markup/">Photo capture &amp; markup</a></li>
+          <li><a href="/features/pdf-reports/">Branded PDF reports</a></li>
+          <li><a href="/features/offline/">Works offline</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="mailto:snagdeskapp@gmail.com">snagdeskapp@gmail.com</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
       <nav class="footer-legal" aria-label="Legal">
-        <a href="privacy.html">Privacy</a>
-        <a href="support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/support.html">Support</a>
       </nav>
     </div>
   </div>
 </footer>
 
-<script>
-  var header = document.getElementById('header');
-  function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-</script>
+<script src="/nav.js" defer></script>
 
 </body>
 </html>
