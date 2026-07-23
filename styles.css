@@ -662,7 +662,14 @@ footer.site-footer {
 .dropdown a:hover { background: var(--bg); }
 .dropdown a strong { display: block; font-size: 14.5px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
 .dropdown a span { display: block; font-size: 12.5px; color: var(--text-subtle); margin-top: 2px; }
-.dropdown-wide { display: flex; gap: 8px; min-width: 560px; }
+.dropdown-wide {
+  display: flex;
+  gap: 8px;
+  width: 560px;
+  min-width: 0;
+  left: 50%;
+  margin-left: -280px;
+}
 .dd-col { flex: 1; min-width: 0; }
 .dd-label {
   text-transform: uppercase;
@@ -682,7 +689,7 @@ footer.site-footer {
 }
 .feature-hero-solo { grid-template-columns: 1fr; max-width: 760px; }
 @media (max-width: 900px) {
-  .dropdown-wide { display: block; min-width: 0; }
+  .dropdown-wide { display: block; width: auto; left: auto; margin-left: 0; }
   .dd-label { padding: 10px 8px 4px; }
 }
 .nav-cta { margin-left: 6px; }

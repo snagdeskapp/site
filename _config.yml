@@ -6,7 +6,7 @@ lang: en-GB
 # Site-wide values used in templates
 app_store: https://apps.apple.com/app/id6782388367
 email: snagdeskapp@gmail.com
-css_version: 7
+css_version: 8
 default_og_image: /screen-markup.png
 
 # No permalink rewriting: pages keep the exact URLs they already have,
