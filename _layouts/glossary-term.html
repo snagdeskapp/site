@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<main>
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span><a href="/glossary/">Glossary</a><span class="sep">/</span>{{ page.term }}
+    </nav>
+  </div>
+
+  <div class="wrap-narrow article-head">
+    <div class="section-tag">Glossary</div>
+    <h1>{{ page.term }}</h1>
+  </div>
+
+  <div class="content">
+    <div class="wrap-narrow prose">
+      <p class="definition"><strong>{{ page.definition }}</strong></p>
+      {{ content }}
+
+      {% if page.related %}
+      <h2>Related terms</h2>
+      <ul>
+        {% for r in page.related %}
+        <li><a href="{{ r.url }}">{{ r.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <p><a href="/glossary/">Back to the glossary</a>{% if page.pillar %} or read the <a href="{{ page.pillar }}">{{ page.pillar_name }}</a>{% endif %}.</p>
+    </div>
+  </div>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="final-cta-card">
+        <h2>Record snags properly on your next walk</h2>
+        <p>Download SnagDesk and turn the list into a branded report before you leave site.</p>
+        <div class="cta-row">
+          <a class="appstore-badge" href="{{ site.app_store }}" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

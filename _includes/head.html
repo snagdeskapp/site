@@ -53,6 +53,44 @@
 {% raw %}}{% endraw %}
 </script>
 {% endif %}
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.h1 | default: page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.updated | default: page.date | date_to_xmlschema }}",
+  "author": { "@type": "Organization", "name": "SnagDesk", "url": "{{ site.url }}/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SnagDesk",
+    "logo": { "@type": "ImageObject", "url": "{{ site.url }}/favicon.png" }
+  },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+  "inLanguage": "en-GB"
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+
+{% if page.layout == "glossary-term" %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": {{ page.term | default: page.title | jsonify }},
+  "description": {{ page.definition | jsonify }},
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "SnagDesk snagging glossary",
+    "url": "{{ site.url }}/glossary/"
+  },
+  "url": "{{ site.url }}{{ page.url }}"
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+
 {% if page.home %}
 <script type="application/ld+json">
 {% raw %}{{% endraw %}

@@ -1,27 +1,20 @@
+---
+layout: null
+sitemap: false
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://snagdesk.co.uk/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/features/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/features/photo-markup/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/features/pdf-reports/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/features/offline/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/features/projects-and-locations/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/pricing/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/contractors/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/builders/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/site-managers/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/snagging-inspectors/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/for/surveyors/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/use-cases/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/use-cases/new-build-snagging/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/use-cases/handover-snagging/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/use-cases/fit-out-snagging/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/use-cases/site-diary/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/about/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/contact/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/security/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/terms/</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/privacy.html</loc><lastmod>2026-07-23</lastmod></url>
-  <url><loc>https://snagdesk.co.uk/support.html</loc><lastmod>2026-07-23</lastmod></url>
+{%- assign pages = site.pages | where_exp: "p", "p.sitemap != false" %}
+{%- for p in pages %}
+{%- if p.url contains '.xml' or p.url contains '.txt' or p.url contains '404' %}{% continue %}{% endif %}
+{%- if p.title %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc></url>
+{%- endif %}
+{%- endfor %}
+{%- for post in site.posts %}
+  <url><loc>{{ site.url }}{{ post.url }}</loc><lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod></url>
+{%- endfor %}
+{%- for t in site.glossary %}
+  <url><loc>{{ site.url }}{{ t.url }}</loc></url>
+{%- endfor %}
 </urlset>

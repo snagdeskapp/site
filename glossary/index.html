@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Snagging & Construction Glossary | SnagDesk"
+description: "Plain definitions of UK snagging and construction terms: snag, practical completion, defects liability period, O&M manual, handover and more."
+h1: "Snagging glossary"
+lead: "Plain definitions of the terms that come up on a UK site, written the way people actually use them."
+hide_hero_cta: true
+crumbs:
+  - name: "Glossary"
+    url: "/glossary/"
+cta_h2: "Get the terms into your workflow"
+cta_p: "Download SnagDesk and record snags the way a report needs them."
+---
+<div class="glossary-list">
+        {% assign terms = site.glossary | sort: "term" %}
+        {% for t in terms %}
+        <a class="glossary-item" href="{{ t.url }}">
+          <h3>{{ t.term }}</h3>
+          <p>{{ t.definition | truncate: 150 }}</p>
+        </a>
+        {% endfor %}
+      </div>
+
+      {% if site.glossary.size == 0 %}
+      <p>Terms are on the way.</p>
+      {% endif %}

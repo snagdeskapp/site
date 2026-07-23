@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Snagging Guides & Advice | SnagDesk Blog"
+description: "Practical guides on snagging UK construction: what snagging is, how to write a snag report, how many snags are normal, and how to run a handover properly."
+h1: "Snagging, explained properly"
+lead: "Practical guides for people who walk sites. What to record, how to record it, and how to turn a walk into a report someone will act on."
+hide_hero_cta: true
+crumbs:
+  - name: "Blog"
+    url: "/blog/"
+cta_h2: "Put the guides into practice"
+cta_p: "Download SnagDesk and record your next job properly."
+---
+<div class="post-grid">
+        {% for p in site.posts %}
+        <a class="post-card" href="{{ p.url }}">
+          <div class="pc-tag">{{ p.cluster_label | default: "Guide" }}</div>
+          <h3>{{ p.h1 | default: p.title }}</h3>
+          <p>{{ p.description | truncate: 130 }}</p>
+          <div class="pc-meta"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%-d %B %Y" }}</time></div>
+        </a>
+        {% endfor %}
+      </div>
+
+      {% if site.posts.size == 0 %}
+      <p>Guides are on the way.</p>
+      {% endif %}

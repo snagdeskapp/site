@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<main>
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span><a href="/blog/">Blog</a><span class="sep">/</span>{{ page.short_title | default: page.h1 }}
+    </nav>
+  </div>
+
+  <article>
+    <div class="wrap-narrow article-head">
+      <div class="section-tag">{{ page.cluster_label | default: "Guide" }}</div>
+      <h1>{{ page.h1 | default: page.title }}</h1>
+      {% if page.standfirst %}<p class="lead">{{ page.standfirst }}</p>{% endif %}
+      <div class="post-meta">
+        <span>SnagDesk team</span>
+        <span class="dot-sep">·</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+        <span class="dot-sep">·</span>
+        <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="wrap-narrow prose">
+        {{ content }}
+
+        {% if page.takeaways %}
+        <div class="callout">
+          <h3>Key takeaways</h3>
+          <ul>
+            {% for t in page.takeaways %}<li>{{ t }}</li>{% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+
+  {% assign related = site.posts | where_exp: "p", "p.url != page.url" | slice: 0, 3 %}
+  {% if related.size > 0 %}
+  <section aria-label="Related reading">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:28px"><h2 style="font-size:26px">More on snagging</h2></div>
+      <div class="post-grid">
+        {% for p in related %}
+        <a class="post-card" href="{{ p.url }}">
+          <div class="pc-tag">{{ p.cluster_label | default: "Guide" }}</div>
+          <h3>{{ p.h1 | default: p.title }}</h3>
+          <p>{{ p.description | truncate: 110 }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="final-cta-card">
+        <h2>{{ page.cta_h2 | default: "Snag your next job properly" }}</h2>
+        <p>{{ page.cta_p | default: "Download SnagDesk and turn the walk into a finished report." }}</p>
+        <div class="cta-row">
+          <a class="appstore-badge" href="{{ site.app_store }}" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
