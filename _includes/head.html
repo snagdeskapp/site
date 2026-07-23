@@ -1,0 +1,82 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="stylesheet" href="/styles.css?v={{ site.css_version }}" />
+<meta property="og:title" content="{{ page.og_title | default: page.title }}" />
+<meta property="og:description" content="{{ page.og_description | default: page.description }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:image" content="{{ site.url }}{{ page.image | default: site.default_og_image }}" />
+{% if page.noindex %}<meta name="robots" content="noindex" />{% endif %}
+
+{% comment %} Breadcrumb schema, built from the page's crumbs {% endcomment %}
+{% if page.crumbs %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" }{% for c in page.crumbs %},
+    { "@type": "ListItem", "position": {{ forloop.index | plus: 1 }}, "name": "{{ c.name }}", "item": "{{ site.url }}{{ c.url }}" }{% endfor %}
+  ]
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+
+{% if page.faqs %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{% for f in page.faqs %}
+    { "@type": "Question", "name": {{ f.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | jsonify }} } }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+
+{% if page.software_schema %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SnagDesk",
+  "operatingSystem": "iOS 26",
+  "applicationCategory": "BusinessApplication",
+  "url": "{{ site.url }}{{ page.url }}",
+  "downloadUrl": "{{ site.app_store }}",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+{% if page.home %}
+<script type="application/ld+json">
+{% raw %}{{% endraw %}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organisation",
+      "name": "SnagDesk",
+      "url": "{{ site.url }}/",
+      "logo": "{{ site.url }}/favicon.png",
+      "email": "{{ site.email }}"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "name": "SnagDesk",
+      "url": "{{ site.url }}/",
+      "publisher": { "@id": "{{ site.url }}/#organisation" },
+      "inLanguage": "en-GB"
+    }
+  ]
+{% raw %}}{% endraw %}
+</script>
+{% endif %}
+{{ page.extra_head }}
+</head>

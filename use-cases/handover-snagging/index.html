@@ -1,128 +1,30 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Handover & Practical Completion Snagging | SnagDesk</title>
-<meta name="description" content="How snagging works at handover and practical completion: what to record, who signs off, and how to produce a defect list that closes a job cleanly." />
-<link rel="canonical" href="https://snagdesk.co.uk/use-cases/handover-snagging/" />
-<link rel="icon" href="/favicon.png" type="image/png" />
-<link rel="stylesheet" href="/styles.css?v=6" />
-<meta property="og:title" content="Handover & Practical Completion Snagging | SnagDesk" />
-<meta property="og:description" content="How snagging works at handover and practical completion: what to record, who signs off, and how to produce a defect list that closes a job cleanly." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://snagdesk.co.uk/use-cases/handover-snagging/" />
-<meta property="og:image" content="https://snagdesk.co.uk/screen-report.png" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagdesk.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "Use cases", "item": "https://snagdesk.co.uk/use-cases/new-build-snagging/" },
-    { "@type": "ListItem", "position": 3, "name": "Handover snagging", "item": "https://snagdesk.co.uk/use-cases/handover-snagging/" },
-    { "@type": "ListItem", "position": 4, "name": "Handover & Practical Completion Snagging | SnagDesk", "item": "https://snagdesk.co.uk/use-cases/handover-snagging/" }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What is practical completion?", "acceptedAnswer": { "@type": "Answer", "text": "The point at which the works are complete enough for the client to take possession, with any remaining defects recorded. It usually starts the defects liability period." } },
-    { "@type": "Question", "name": "What should be on a handover snag list?", "acceptedAnswer": { "@type": "Answer", "text": "Every outstanding item, each with a photograph, a precise location and a short description of the defect." } },
-    { "@type": "Question", "name": "Why record defects by location?", "acceptedAnswer": { "@type": "Answer", "text": "Grouping by plot, unit or room lets a trade work through one area at a time, which closes items out far faster than a flat list." } }
-  ]
-}
-</script>
-</head>
-<body>
-
-<header class="site-header" id="header">
-  <div class="wrap nav">
-    <a class="brand" href="/">
-      <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-      SnagDesk
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav-menu" id="navMenu" aria-label="Primary">
-      <ul class="nav-list">
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Product
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/snagging-app/"><strong>Snagging software</strong><span>What SnagDesk is and who it's for</span></a>
-            <a href="/features/photo-markup/"><strong>Photo capture &amp; markup</strong><span>Shoot and annotate defects on site</span></a>
-            <a href="/features/pdf-reports/"><strong>Branded PDF reports</strong><span>One-tap, client-ready reports</span></a>
-            <a href="/features/offline/"><strong>Works offline</strong><span>No account, no signal needed</span></a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Solutions
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/for/contractors/"><strong>For contractors</strong><span>Close out defects and hand over clean</span></a>
-            <a href="/for/builders/"><strong>For builders</strong><span>Log snags room by room</span></a>
-            <a href="/for/site-managers/"><strong>For site managers</strong><span>Track defects across every plot</span></a>
-            <a href="/for/snagging-inspectors/"><strong>For snagging inspectors</strong><span>Branded reports on every visit</span></a>
-            <a href="/for/surveyors/"><strong>For surveyors</strong><span>Photographed defect records</span></a>
-            <a href="/use-cases/new-build-snagging/"><strong>New build snagging</strong><span>The complete guide</span></a>
-            <a href="/use-cases/handover-snagging/"><strong>Handover snagging</strong><span>Practical completion and sign-off</span></a>
-            <a href="/use-cases/fit-out-snagging/"><strong>Fit-out snagging</strong><span>Commercial fit-out defects</span></a>
-            <a href="/use-cases/site-diary/"><strong>Site diary</strong><span>Daily site records</span></a>
-          </div>
-        </li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Company
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/about/"><strong>About</strong><span>Who is behind SnagDesk</span></a>
-            <a href="/contact/"><strong>Contact</strong><span>Get in touch with us</span></a>
-            <a href="/security/"><strong>Security</strong><span>How your data is kept safe</span></a>
-            <a href="/support.html"><strong>Support</strong><span>Help and common questions</span></a>
-          </div>
-        </li>
-      </ul>
-      <a class="btn btn-lime nav-cta" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="wrap">
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="https://snagdesk.co.uk/use-cases/new-build-snagging/">Use cases</a><span class="sep">/</span><a href="https://snagdesk.co.uk/use-cases/handover-snagging/">Handover snagging</a><span class="sep">/</span>Handover snagging
-    </nav>
-
-    <div class="feature-hero">
-      <div class="fh-text">
-        <h1>Handover and practical completion snagging</h1>
-        <p class="lead">What to record at practical completion, how to keep the defects list clean, and how to close a job without weeks of dispute.</p>
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="/#how">See how it works</a>
-        </div>
-      </div>
-      <div class="fh-shot">
-        <div class="phone">
-          <img src="/screen-report.png" alt="A handover snag report generated in SnagDesk" width="1206" height="2622" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="wrap-narrow prose">
-      <p>Handover is where a job is judged. Practical completion means the works are finished enough for the client to take possession, with any remaining defects recorded and scheduled. The quality of that record decides whether the final weeks are smooth or spent arguing about who agreed to what.</p>
+---
+layout: page
+title: "Handover & Practical Completion Snagging | SnagDesk"
+description: "How snagging works at handover and practical completion: what to record, who signs off, and how to produce a defect list that closes a job cleanly."
+image: "/screen-report.png"
+h1: "Handover and practical completion snagging"
+lead: "What to record at practical completion, how to keep the defects list clean, and how to close a job without weeks of dispute."
+hero_image: "/screen-report.png"
+hero_alt: "A handover snag report generated in SnagDesk"
+hero_cta_href: "/#how"
+hero_cta_text: "See how it works"
+crumbs:
+  - name: "Use cases"
+    url: "/use-cases/"
+  - name: "Handover snagging"
+    url: "/use-cases/handover-snagging/"
+faqs:
+  - q: "What is practical completion?"
+    a: "The point at which the works are complete enough for the client to take possession, with any remaining defects recorded. It usually starts the defects liability period."
+  - q: "What should be on a handover snag list?"
+    a: "Every outstanding item, each with a photograph, a precise location and a short description of the defect."
+  - q: "Why record defects by location?"
+    a: "Grouping by plot, unit or room lets a trade work through one area at a time, which closes items out far faster than a flat list."
+cta_h2: "Close your next handover cleanly"
+cta_p: "Download SnagDesk and hand over a photographed, located defect list."
+---
+<p>Handover is where a job is judged. Practical completion means the works are finished enough for the client to take possession, with any remaining defects recorded and scheduled. The quality of that record decides whether the final weeks are smooth or spent arguing about who agreed to what.</p>
 
       <h2>What practical completion actually means</h2>
       <p>Practical completion is the point at which the building is fit for its purpose and the client can occupy it, even though minor defects may remain. It usually triggers the start of the defects liability period, during which the contractor returns to put right anything recorded. Because it shifts responsibility and starts a clock, the defect list attached to it matters a great deal.</p>
@@ -137,113 +39,3 @@
       <p>The document you hand over should look like a professional record: numbered items, photographs, locations, and your company details on every page. That is what gets signed off and what protects both sides if a question comes up months later. SnagDesk generates it on your phone as soon as the walk is done.</p>
 
       <p>Read the <a href="/use-cases/new-build-snagging/">new build snagging guide</a>, or see how <a href="/features/pdf-reports/">branded PDF reports</a> are produced.</p>
-    </div>
-  </div>
-
-  <section aria-label="FAQ">
-    <div class="wrap">
-      <div class="section-head" style="margin-bottom:28px"><h2 style="font-size:26px">Common questions</h2></div>
-      <div class="faq-list">
-        <details open>
-          <summary>What is practical completion?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>The point at which the works are complete enough for the client to take possession, with any remaining defects recorded. It usually starts the defects liability period.</p></div>
-        </details>
-        <details>
-          <summary>What should be on a handover snag list?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>Every outstanding item, each with a photograph, a precise location and a short description of the defect.</p></div>
-        </details>
-        <details>
-          <summary>Why record defects by location?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>Grouping by plot, unit or room lets a trade work through one area at a time, which closes items out far faster than a flat list.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-  <section class="final-cta">
-    <div class="wrap">
-      <div class="final-cta-card">
-        <h2>Close your next handover cleanly</h2>
-        <p>Download SnagDesk and hand over a photographed, located defect list.</p>
-        <div class="cta-row">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand-col">
-        <a class="footer-brand" href="/">
-          <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-          SnagDesk
-        </a>
-        <p class="footer-blurb">The offline snagging app for UK builders, contractors and inspectors. Capture, mark up and report without leaving site.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="/snagging-app/">Snagging software</a></li>
-          <li><a href="/features/photo-markup/">Photo capture &amp; markup</a></li>
-          <li><a href="/features/pdf-reports/">Branded PDF reports</a></li>
-          <li><a href="/features/offline/">Works offline</a></li>
-          <li><a href="/features/projects-and-locations/">Projects &amp; locations</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="/for/contractors/">For contractors</a></li>
-          <li><a href="/for/builders/">For builders</a></li>
-          <li><a href="/for/site-managers/">For site managers</a></li>
-          <li><a href="/for/snagging-inspectors/">For inspectors</a></li>
-          <li><a href="/for/surveyors/">For surveyors</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Use cases</h4>
-        <ul>
-          <li><a href="/use-cases/new-build-snagging/">New build snagging</a></li>
-          <li><a href="/use-cases/handover-snagging/">Handover snagging</a></li>
-          <li><a href="/use-cases/fit-out-snagging/">Fit-out snagging</a></li>
-          <li><a href="/use-cases/site-diary/">Site diary</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/security/">Security</a></li>
-          <li><a href="/support.html">Support</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
-      <nav class="footer-legal" aria-label="Legal">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms/">Terms</a>
-        <a href="/support.html">Support</a>
-      </nav>
-    </div>
-  </div>
-</footer>
-
-<script src="/nav.js" defer></script>
-
-</body>
-</html>

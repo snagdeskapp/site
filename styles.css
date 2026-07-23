@@ -662,6 +662,29 @@ footer.site-footer {
 .dropdown a:hover { background: var(--bg); }
 .dropdown a strong { display: block; font-size: 14.5px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
 .dropdown a span { display: block; font-size: 12.5px; color: var(--text-subtle); margin-top: 2px; }
+.dropdown-wide { display: flex; gap: 8px; min-width: 560px; }
+.dd-col { flex: 1; min-width: 0; }
+.dd-label {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-subtle);
+  padding: 8px 12px 6px;
+}
+.dropdown a.dd-all {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--brand);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 10px 10px;
+  margin-top: 6px;
+}
+.feature-hero-solo { grid-template-columns: 1fr; max-width: 760px; }
+@media (max-width: 900px) {
+  .dropdown-wide { display: block; min-width: 0; }
+  .dd-label { padding: 10px 8px 4px; }
+}
 .nav-cta { margin-left: 6px; }
 
 @media (max-width: 900px) {

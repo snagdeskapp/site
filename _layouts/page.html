@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<main>
+  <div class="wrap">
+    {% if page.crumbs %}
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>{% for c in page.crumbs %}<span class="sep">/</span>{% if forloop.last %}{{ c.name }}{% else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif %}{% endfor %}
+    </nav>
+    {% endif %}
+
+    {% if page.h1 %}
+    <div class="feature-hero{% unless page.hero_image %} feature-hero-solo{% endunless %}">
+      <div class="fh-text">
+        <h1>{{ page.h1 }}</h1>
+        {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+        {% unless page.hide_hero_cta %}
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="appstore-badge" href="{{ site.app_store }}" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
+          </a>
+          {% if page.hero_cta_href %}<a class="btn btn-ghost" href="{{ page.hero_cta_href }}">{{ page.hero_cta_text }}</a>{% endif %}
+        </div>
+        {% endunless %}
+      </div>
+      {% if page.hero_image %}
+      <div class="fh-shot">
+        <div class="phone">
+          <img src="{{ page.hero_image }}" alt="{{ page.hero_alt }}" width="1206" height="2622" />
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="content">
+    <div class="wrap-narrow prose">
+{{ content }}
+    </div>
+  </div>
+
+  {% if page.faqs %}
+  <section aria-label="Common questions">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:28px"><h2 style="font-size:26px">Common questions</h2></div>
+      <div class="faq-list">
+        {% for f in page.faqs %}
+        <details{% if forloop.first %} open{% endif %}>
+          <summary>{{ f.q }}
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-body"><p>{{ f.a }}</p></div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% unless page.hide_cta %}
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="final-cta-card">
+        <h2>{{ page.cta_h2 | default: "Try SnagDesk on your next walk" }}</h2>
+        <p>{{ page.cta_p | default: "Download it and see the report land before you leave site." }}</p>
+        <div class="cta-row">
+          <a class="appstore-badge" href="{{ site.app_store }}" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endunless %}
+</main>

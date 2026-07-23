@@ -1,141 +1,33 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Photo Capture &amp; Markup for Snags | SnagDesk</title>
-<meta name="description" content="Photograph a defect and mark it up on the spot with SnagDesk. Draw boxes, circles and arrows straight on the image, then drop it into your snag report." />
-<link rel="canonical" href="https://snagdesk.co.uk/features/photo-markup/" />
-<link rel="icon" href="/favicon.png" type="image/png" />
-<link rel="stylesheet" href="/styles.css?v=6" />
-<meta property="og:title" content="Photo capture & markup for snags | SnagDesk" />
-<meta property="og:description" content="Draw boxes, circles and arrows straight on the defect photo, then drop it into your snag report." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://snagdesk.co.uk/features/photo-markup/" />
-<meta property="og:image" content="https://snagdesk.co.uk/screen-markup.png" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagdesk.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://snagdesk.co.uk/#features" },
-    { "@type": "ListItem", "position": 3, "name": "Photo capture & markup", "item": "https://snagdesk.co.uk/features/photo-markup/" }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "SnagDesk",
-  "operatingSystem": "iOS 26",
-  "applicationCategory": "BusinessApplication",
-  "url": "https://snagdesk.co.uk/features/photo-markup/",
-  "downloadUrl": "https://apps.apple.com/app/id6782388367",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "Can I draw on the photo?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add boxes, circles and arrows straight onto the defect photo, so the exact problem is obvious to whoever reads the report." } },
-    { "@type": "Question", "name": "Does markup change the original photo?", "acceptedAnswer": { "@type": "Answer", "text": "Your markup is saved with the snag and appears on the report. The photo stays on your iPhone, and nothing is uploaded anywhere." } },
-    { "@type": "Question", "name": "How many photos can I add to a snag?", "acceptedAnswer": { "@type": "Answer", "text": "You can add more than one photo to a single snag, for example a wide shot for context and a close-up of the defect." } }
-  ]
-}
-</script>
-</head>
-<body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"></svg>
-
-<header class="site-header" id="header">
-  <div class="wrap nav">
-    <a class="brand" href="/">
-      <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-      SnagDesk
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav-menu" id="navMenu" aria-label="Primary">
-      <ul class="nav-list">
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Product
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/snagging-app/"><strong>Snagging software</strong><span>What SnagDesk is and who it's for</span></a>
-            <a href="/features/photo-markup/"><strong>Photo capture &amp; markup</strong><span>Shoot and annotate defects on site</span></a>
-            <a href="/features/pdf-reports/"><strong>Branded PDF reports</strong><span>One-tap, client-ready reports</span></a>
-            <a href="/features/offline/"><strong>Works offline</strong><span>No account, no signal needed</span></a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Solutions
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/for/contractors/"><strong>For contractors</strong><span>Close out defects and hand over clean</span></a>
-            <a href="/for/builders/"><strong>For builders</strong><span>Log snags room by room</span></a>
-            <a href="/for/site-managers/"><strong>For site managers</strong><span>Track defects across every plot</span></a>
-            <a href="/for/snagging-inspectors/"><strong>For snagging inspectors</strong><span>Branded reports on every visit</span></a>
-            <a href="/for/surveyors/"><strong>For surveyors</strong><span>Photographed defect records</span></a>
-            <a href="/use-cases/new-build-snagging/"><strong>New build snagging</strong><span>The complete guide</span></a>
-            <a href="/use-cases/handover-snagging/"><strong>Handover snagging</strong><span>Practical completion and sign-off</span></a>
-            <a href="/use-cases/fit-out-snagging/"><strong>Fit-out snagging</strong><span>Commercial fit-out defects</span></a>
-            <a href="/use-cases/site-diary/"><strong>Site diary</strong><span>Daily site records</span></a>
-          </div>
-        </li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Company
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/about/"><strong>About</strong><span>Who is behind SnagDesk</span></a>
-            <a href="/contact/"><strong>Contact</strong><span>Get in touch with us</span></a>
-            <a href="/security/"><strong>Security</strong><span>How your data is kept safe</span></a>
-            <a href="/support.html"><strong>Support</strong><span>Help and common questions</span></a>
-          </div>
-        </li>
-      </ul>
-      <a class="btn btn-lime nav-cta" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="wrap">
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="/#features">Features</a><span class="sep">/</span>Photo capture &amp; markup
-    </nav>
-
-    <div class="feature-hero">
-      <div class="fh-text">
-        <h1>Photo capture and markup, built for snagging</h1>
-        <p class="lead">Photograph the defect where you're standing, mark it up on the image, and it's logged. No second app, no faffing with the camera roll.</p>
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="/#how">See how it works</a>
-        </div>
-      </div>
-      <div class="fh-shot">
-        <div class="phone">
-          <img src="/screen-markup.png" alt="Drawing a red box around a defect on a photo in SnagDesk" width="1206" height="2622" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="wrap-narrow prose">
-      <p>Snagging lives and dies on the photo. A defect nobody can see in the picture is a defect that gets argued over on site. SnagDesk is built so the photo and the markup happen in one place, at the moment you spot the problem, so the record is clear before you have moved on to the next room.</p>
+---
+layout: page
+title: "Photo Capture &amp; Markup for Snags | SnagDesk"
+description: "Photograph a defect and mark it up on the spot with SnagDesk. Draw boxes, circles and arrows straight on the image, then drop it into your snag report."
+og_title: "Photo capture & markup for snags | SnagDesk"
+og_description: "Draw boxes, circles and arrows straight on the defect photo, then drop it into your snag report."
+image: "/screen-markup.png"
+h1: "Photo capture and markup, built for snagging"
+lead: "Photograph the defect where you're standing, mark it up on the image, and it's logged. No second app, no faffing with the camera roll."
+hero_image: "/screen-markup.png"
+hero_alt: "Drawing a red box around a defect on a photo in SnagDesk"
+hero_cta_href: "/#how"
+hero_cta_text: "See how it works"
+software_schema: true
+crumbs:
+  - name: "Features"
+    url: "/features/"
+  - name: "Photo capture & markup"
+    url: "/features/photo-markup/"
+faqs:
+  - q: "Can I draw on the photo?"
+    a: "Yes. You can add boxes, circles and arrows straight onto the defect photo, so the exact problem is obvious to whoever reads the report."
+  - q: "Does markup change the original photo?"
+    a: "Your markup is saved with the snag and appears on the report. The photo stays on your iPhone, and nothing is uploaded anywhere."
+  - q: "How many photos can I add to a snag?"
+    a: "You can add more than one photo to a single snag, for example a wide shot for context and a close-up of the defect."
+cta_h2: "Log your next snag with the photo already marked up"
+cta_p: "Download SnagDesk and capture defects the way a report needs them."
+---
+<p>Snagging lives and dies on the photo. A defect nobody can see in the picture is a defect that gets argued over on site. SnagDesk is built so the photo and the markup happen in one place, at the moment you spot the problem, so the record is clear before you have moved on to the next room.</p>
 
       <h2>Shoot the defect where you're standing</h2>
       <p>Open a snag, tap the camera, and take the photo without leaving the app. There's no jumping to the iPhone camera and back, and no hunting through hundreds of shots later to work out which cracked tile belonged to which plot. The photo attaches straight to the snag you're logging.</p>
@@ -150,108 +42,17 @@
 
       <h2>It all works with no signal</h2>
       <p>New builds and bare shells rarely have a usable connection. Capture and markup happen entirely on your iPhone, so a basement with no bars is no different to a show home with full wifi. Nothing needs to upload before you can carry on.</p>
-    </div>
 
-    <section aria-label="Related features" style="padding-top:8px">
-      <div class="wrap">
-        <div class="section-head" style="margin-bottom:28px">
-          <h2 style="font-size:24px">Works with</h2>
-        </div>
-        <div class="works-with">
-          <a class="ww-card" href="/features/pdf-reports/">
-            <div class="ww-label">Feature</div>
-            <h3>Branded PDF reports</h3>
-            <p>Every marked-up photo drops into a clean, branded report, ready to email.</p>
-          </a>
-          <a class="ww-card" href="/features/offline/">
-            <div class="ww-label">Feature</div>
-            <h3>Works offline</h3>
-            <p>Capture and mark up with no signal. It all stays on your iPhone.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <section class="final-cta">
-    <div class="wrap">
-      <div class="final-cta-card">
-        <h2>Log your next snag with the photo already marked up</h2>
-        <p>Download SnagDesk and capture defects the way a report needs them.</p>
-        <div class="cta-row">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand-col">
-        <a class="footer-brand" href="/">
-          <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-          SnagDesk
+      <h2>Works with</h2>
+      <div class="works-with">
+        <a class="ww-card" href="/features/pdf-reports/">
+          <div class="ww-label">Feature</div>
+          <h3>Branded PDF reports</h3>
+          <p>Every marked-up photo drops into a clean, branded report, ready to email.</p>
         </a>
-        <p class="footer-blurb">The offline snagging app for UK builders, contractors and inspectors. Capture, mark up and report without leaving site.</p>
+        <a class="ww-card" href="/features/offline/">
+          <div class="ww-label">Feature</div>
+          <h3>Works offline</h3>
+          <p>Capture and mark up with no signal. It all stays on your iPhone.</p>
+        </a>
       </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="/snagging-app/">Snagging software</a></li>
-          <li><a href="/features/photo-markup/">Photo capture &amp; markup</a></li>
-          <li><a href="/features/pdf-reports/">Branded PDF reports</a></li>
-          <li><a href="/features/offline/">Works offline</a></li>
-          <li><a href="/features/projects-and-locations/">Projects &amp; locations</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="/for/contractors/">For contractors</a></li>
-          <li><a href="/for/builders/">For builders</a></li>
-          <li><a href="/for/site-managers/">For site managers</a></li>
-          <li><a href="/for/snagging-inspectors/">For inspectors</a></li>
-          <li><a href="/for/surveyors/">For surveyors</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Use cases</h4>
-        <ul>
-          <li><a href="/use-cases/new-build-snagging/">New build snagging</a></li>
-          <li><a href="/use-cases/handover-snagging/">Handover snagging</a></li>
-          <li><a href="/use-cases/fit-out-snagging/">Fit-out snagging</a></li>
-          <li><a href="/use-cases/site-diary/">Site diary</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/security/">Security</a></li>
-          <li><a href="/support.html">Support</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
-      <nav class="footer-legal" aria-label="Legal">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms/">Terms</a>
-        <a href="/support.html">Support</a>
-      </nav>
-    </div>
-  </div>
-</footer>
-
-<script src="/nav.js" defer></script>
-
-</body>
-</html>

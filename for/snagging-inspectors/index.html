@@ -1,128 +1,30 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>App for Professional Snagging Inspectors | SnagDesk</title>
-<meta name="description" content="An app for professional snagging inspectors. Produce a branded, photographed PDF snag report on every visit, straight from your iPhone. Works offline." />
-<link rel="canonical" href="https://snagdesk.co.uk/for/snagging-inspectors/" />
-<link rel="icon" href="/favicon.png" type="image/png" />
-<link rel="stylesheet" href="/styles.css?v=6" />
-<meta property="og:title" content="App for Professional Snagging Inspectors | SnagDesk" />
-<meta property="og:description" content="An app for professional snagging inspectors. Produce a branded, photographed PDF snag report on every visit, straight from your iPhone. Works offline." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://snagdesk.co.uk/for/snagging-inspectors/" />
-<meta property="og:image" content="https://snagdesk.co.uk/screen-report.png" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snagdesk.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "For", "item": "https://snagdesk.co.uk/snagging-app/" },
-    { "@type": "ListItem", "position": 3, "name": "Snagging inspectors", "item": "https://snagdesk.co.uk/for/snagging-inspectors/" },
-    { "@type": "ListItem", "position": 4, "name": "App for Professional Snagging Inspectors | SnagDesk", "item": "https://snagdesk.co.uk/for/snagging-inspectors/" }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "Can I fully brand the report?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your company name, logo, prepared-by signature and footer text are all editable in Settings and appear on every report." } },
-    { "@type": "Question", "name": "How long does a report take to produce?", "acceptedAnswer": { "@type": "Answer", "text": "The report is generated on your iPhone in seconds once your walk is done, ready to email." } },
-    { "@type": "Question", "name": "Can I use it with no signal?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything runs offline, so empty plots and blackspots are no problem." } }
-  ]
-}
-</script>
-</head>
-<body>
-
-<header class="site-header" id="header">
-  <div class="wrap nav">
-    <a class="brand" href="/">
-      <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-      SnagDesk
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav-menu" id="navMenu" aria-label="Primary">
-      <ul class="nav-list">
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Product
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/snagging-app/"><strong>Snagging software</strong><span>What SnagDesk is and who it's for</span></a>
-            <a href="/features/photo-markup/"><strong>Photo capture &amp; markup</strong><span>Shoot and annotate defects on site</span></a>
-            <a href="/features/pdf-reports/"><strong>Branded PDF reports</strong><span>One-tap, client-ready reports</span></a>
-            <a href="/features/offline/"><strong>Works offline</strong><span>No account, no signal needed</span></a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Solutions
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/for/contractors/"><strong>For contractors</strong><span>Close out defects and hand over clean</span></a>
-            <a href="/for/builders/"><strong>For builders</strong><span>Log snags room by room</span></a>
-            <a href="/for/site-managers/"><strong>For site managers</strong><span>Track defects across every plot</span></a>
-            <a href="/for/snagging-inspectors/"><strong>For snagging inspectors</strong><span>Branded reports on every visit</span></a>
-            <a href="/for/surveyors/"><strong>For surveyors</strong><span>Photographed defect records</span></a>
-            <a href="/use-cases/new-build-snagging/"><strong>New build snagging</strong><span>The complete guide</span></a>
-            <a href="/use-cases/handover-snagging/"><strong>Handover snagging</strong><span>Practical completion and sign-off</span></a>
-            <a href="/use-cases/fit-out-snagging/"><strong>Fit-out snagging</strong><span>Commercial fit-out defects</span></a>
-            <a href="/use-cases/site-diary/"><strong>Site diary</strong><span>Daily site records</span></a>
-          </div>
-        </li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li class="has-dropdown">
-          <button class="nav-trigger" aria-expanded="false">Company
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown">
-            <a href="/about/"><strong>About</strong><span>Who is behind SnagDesk</span></a>
-            <a href="/contact/"><strong>Contact</strong><span>Get in touch with us</span></a>
-            <a href="/security/"><strong>Security</strong><span>How your data is kept safe</span></a>
-            <a href="/support.html"><strong>Support</strong><span>Help and common questions</span></a>
-          </div>
-        </li>
-      </ul>
-      <a class="btn btn-lime nav-cta" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="wrap">
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a><span class="sep">/</span><a href="https://snagdesk.co.uk/snagging-app/">For</a><span class="sep">/</span><a href="https://snagdesk.co.uk/for/snagging-inspectors/">Snagging inspectors</a><span class="sep">/</span>Snagging inspectors
-    </nav>
-
-    <div class="feature-hero">
-      <div class="fh-text">
-        <h1>An app for professional snagging inspectors</h1>
-        <p class="lead">Produce a professional, branded report on every visit. Photograph and mark up each defect, then hand the client a polished PDF before you leave.</p>
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="/snagging-app/">How it works</a>
-        </div>
-      </div>
-      <div class="fh-shot">
-        <div class="phone">
-          <img src="/screen-report.png" alt="A branded snagging inspection report in SnagDesk" width="1206" height="2622" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="wrap-narrow prose">
-      <p>For a professional snagging inspector the report is the product. The client is paying for a document they can hand to a developer, and it needs to look credible on the first job and every one after it. SnagDesk turns your on-site walk into a branded, photographed report in seconds, so the thing you deliver matches the fee you charge.</p>
+---
+layout: page
+title: "App for Professional Snagging Inspectors | SnagDesk"
+description: "An app for professional snagging inspectors. Produce a branded, photographed PDF snag report on every visit, straight from your iPhone. Works offline."
+image: "/screen-report.png"
+h1: "An app for professional snagging inspectors"
+lead: "Produce a professional, branded report on every visit. Photograph and mark up each defect, then hand the client a polished PDF before you leave."
+hero_image: "/screen-report.png"
+hero_alt: "A branded snagging inspection report in SnagDesk"
+hero_cta_href: "/#how"
+hero_cta_text: "How it works"
+crumbs:
+  - name: "Who it's for"
+    url: "/for/"
+  - name: "Snagging inspectors"
+    url: "/for/snagging-inspectors/"
+faqs:
+  - q: "Can I fully brand the report?"
+    a: "Yes. Your company name, logo, prepared-by signature and footer text are all editable in Settings and appear on every report."
+  - q: "How long does a report take to produce?"
+    a: "The report is generated on your iPhone in seconds once your walk is done, ready to email."
+  - q: "Can I use it with no signal?"
+    a: "Yes. Everything runs offline, so empty plots and blackspots are no problem."
+cta_h2: "Deliver a report that matches your fee"
+cta_p: "Download SnagDesk and hand over a branded inspection report, same day."
+---
+<p>For a professional snagging inspector the report is the product. The client is paying for a document they can hand to a developer, and it needs to look credible on the first job and every one after it. SnagDesk turns your on-site walk into a branded, photographed report in seconds, so the thing you deliver matches the fee you charge.</p>
 
       <h2>A day with SnagDesk</h2>
       <p>You arrive at a new-build handover inspection. You set up the project with the client and address, then walk the property methodically. Each defect gets a photo, a markup, a location and a note, in the language a developer will act on. Because it all saves on the phone, the patchy signal in the plot never slows you down.</p>
@@ -150,114 +52,4 @@
       <h2>Credible on the first job</h2>
       <p>A consistent, well-branded report is how a snagging inspector builds a reputation. Every report looking the same, every defect photographed and located, is what turns a one-off inspection into a referral. SnagDesk makes that consistency the default rather than an evening's work.</p>
 
-      <p>See <a href="/features/pdf-reports/">branded PDF reports</a> in detail, or read the full <a href="/snagging-app/">snagging software</a> overview.</p>
-    </div>
-  </div>
-
-  <section aria-label="FAQ">
-    <div class="wrap">
-      <div class="section-head" style="margin-bottom:28px"><h2 style="font-size:26px">Common questions</h2></div>
-      <div class="faq-list">
-        <details open>
-          <summary>Can I fully brand the report?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>Yes. Your company name, logo, prepared-by signature and footer text are all editable in Settings and appear on every report.</p></div>
-        </details>
-        <details>
-          <summary>How long does a report take to produce?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>The report is generated on your iPhone in seconds once your walk is done, ready to email.</p></div>
-        </details>
-        <details>
-          <summary>Can I use it with no signal?
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="faq-body"><p>Yes. Everything runs offline, so empty plots and blackspots are no problem.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-  <section class="final-cta">
-    <div class="wrap">
-      <div class="final-cta-card">
-        <h2>Deliver a report that matches your fee</h2>
-        <p>Download SnagDesk and hand over a branded inspection report, same day.</p>
-        <div class="cta-row">
-          <a class="appstore-badge" href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg class="badge-svg" role="img" aria-label="Download on the App Store"><use href="/sprite.svg#appstore-badge"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand-col">
-        <a class="footer-brand" href="/">
-          <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
-          SnagDesk
-        </a>
-        <p class="footer-blurb">The offline snagging app for UK builders, contractors and inspectors. Capture, mark up and report without leaving site.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="/snagging-app/">Snagging software</a></li>
-          <li><a href="/features/photo-markup/">Photo capture &amp; markup</a></li>
-          <li><a href="/features/pdf-reports/">Branded PDF reports</a></li>
-          <li><a href="/features/offline/">Works offline</a></li>
-          <li><a href="/features/projects-and-locations/">Projects &amp; locations</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="/for/contractors/">For contractors</a></li>
-          <li><a href="/for/builders/">For builders</a></li>
-          <li><a href="/for/site-managers/">For site managers</a></li>
-          <li><a href="/for/snagging-inspectors/">For inspectors</a></li>
-          <li><a href="/for/surveyors/">For surveyors</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Use cases</h4>
-        <ul>
-          <li><a href="/use-cases/new-build-snagging/">New build snagging</a></li>
-          <li><a href="/use-cases/handover-snagging/">Handover snagging</a></li>
-          <li><a href="/use-cases/fit-out-snagging/">Fit-out snagging</a></li>
-          <li><a href="/use-cases/site-diary/">Site diary</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/security/">Security</a></li>
-          <li><a href="/support.html">Support</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 SnagDesk. All rights reserved.</div>
-      <nav class="footer-legal" aria-label="Legal">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms/">Terms</a>
-        <a href="/support.html">Support</a>
-      </nav>
-    </div>
-  </div>
-</footer>
-
-<script src="/nav.js" defer></script>
-
-</body>
-</html>
+      <p>See <a href="/features/pdf-reports/">branded PDF reports</a> in detail, or read the full <a href="/features/">features overview</a>.</p>
