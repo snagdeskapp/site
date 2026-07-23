@@ -7,7 +7,7 @@
 <meta name="description" content="SnagDesk is the offline snagging app for UK builders and contractors. Capture a defect, mark it up, and email a branded PDF report before you leave site." />
 <link rel="canonical" href="https://snagdesk.co.uk/" />
 <link rel="icon" href="favicon.png" type="image/png" />
-<link rel="stylesheet" href="styles.css?v=5" />
+<link rel="stylesheet" href="styles.css?v=6" />
 <meta property="og:title" content="Snagging app for UK builders & contractors | SnagDesk" />
 <meta property="og:description" content="Capture a defect, mark it up, and email a branded PDF snag report before you leave site. Works offline, no account needed." />
 <meta property="og:type" content="website" />
@@ -122,7 +122,7 @@
 <header class="site-header" id="header">
   <div class="wrap nav">
     <a class="brand" href="/">
-      <svg class="logo"><use href="#snag-logo"/></svg>
+      <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
       SnagDesk
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
@@ -141,6 +141,22 @@
             <a href="/features/offline/"><strong>Works offline</strong><span>No account, no signal needed</span></a>
           </div>
         </li>
+        <li class="has-dropdown">
+          <button class="nav-trigger" aria-expanded="false">Solutions
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="dropdown">
+            <a href="/for/contractors/"><strong>For contractors</strong><span>Close out defects and hand over clean</span></a>
+            <a href="/for/builders/"><strong>For builders</strong><span>Log snags room by room</span></a>
+            <a href="/for/site-managers/"><strong>For site managers</strong><span>Track defects across every plot</span></a>
+            <a href="/for/snagging-inspectors/"><strong>For snagging inspectors</strong><span>Branded reports on every visit</span></a>
+            <a href="/for/surveyors/"><strong>For surveyors</strong><span>Photographed defect records</span></a>
+            <a href="/use-cases/new-build-snagging/"><strong>New build snagging</strong><span>The complete guide</span></a>
+            <a href="/use-cases/handover-snagging/"><strong>Handover snagging</strong><span>Practical completion and sign-off</span></a>
+            <a href="/use-cases/fit-out-snagging/"><strong>Fit-out snagging</strong><span>Commercial fit-out defects</span></a>
+            <a href="/use-cases/site-diary/"><strong>Site diary</strong><span>Daily site records</span></a>
+          </div>
+        </li>
         <li><a href="/pricing/">Pricing</a></li>
         <li class="has-dropdown">
           <button class="nav-trigger" aria-expanded="false">Company
@@ -149,6 +165,7 @@
           <div class="dropdown">
             <a href="/about/"><strong>About</strong><span>Who is behind SnagDesk</span></a>
             <a href="/contact/"><strong>Contact</strong><span>Get in touch with us</span></a>
+            <a href="/security/"><strong>Security</strong><span>How your data is kept safe</span></a>
             <a href="/support.html"><strong>Support</strong><span>Help and common questions</span></a>
           </div>
         </li>
@@ -467,7 +484,7 @@
     <div class="footer-top">
       <div class="footer-brand-col">
         <a class="footer-brand" href="/">
-          <svg class="logo"><use href="#snag-logo"/></svg>
+          <svg class="logo"><use href="/sprite.svg#snag-logo"/></svg>
           SnagDesk
         </a>
         <p class="footer-blurb">The offline snagging app for UK builders, contractors and inspectors. Capture, mark up and report without leaving site.</p>
@@ -479,7 +496,27 @@
           <li><a href="/features/photo-markup/">Photo capture &amp; markup</a></li>
           <li><a href="/features/pdf-reports/">Branded PDF reports</a></li>
           <li><a href="/features/offline/">Works offline</a></li>
+          <li><a href="/features/projects-and-locations/">Projects &amp; locations</a></li>
           <li><a href="/pricing/">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/for/contractors/">For contractors</a></li>
+          <li><a href="/for/builders/">For builders</a></li>
+          <li><a href="/for/site-managers/">For site managers</a></li>
+          <li><a href="/for/snagging-inspectors/">For inspectors</a></li>
+          <li><a href="/for/surveyors/">For surveyors</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Use cases</h4>
+        <ul>
+          <li><a href="/use-cases/new-build-snagging/">New build snagging</a></li>
+          <li><a href="/use-cases/handover-snagging/">Handover snagging</a></li>
+          <li><a href="/use-cases/fit-out-snagging/">Fit-out snagging</a></li>
+          <li><a href="/use-cases/site-diary/">Site diary</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -487,13 +524,8 @@
         <ul>
           <li><a href="/about/">About</a></li>
           <li><a href="/contact/">Contact</a></li>
+          <li><a href="/security/">Security</a></li>
           <li><a href="/support.html">Support</a></li>
-          <li><a href="https://apps.apple.com/app/id6782388367" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
           <li><a href="/privacy.html">Privacy</a></li>
           <li><a href="/terms/">Terms</a></li>
         </ul>
