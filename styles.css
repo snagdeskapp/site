@@ -239,14 +239,15 @@ h1 .accent {
 }
 @media (max-width: 880px) {
   .mockups { gap: 14px; }
-  .phone { width: 30vw; }
-  .phone.center { transform: translateY(-16px) scale(1.04); }
+  .mockups .phone { width: 30vw; }
+  .mockups .phone.center { transform: translateY(-16px) scale(1.04); }
 }
 @media (max-width: 560px) {
   .mockups { gap: 12px; }
-  .phone { width: 40vw; padding: 7px; border-radius: 30px; }
-  .phone:first-child { display: none; }
-  .phone.center { transform: none; }
+  .mockups .phone { width: 40vw; padding: 7px; border-radius: 30px; }
+  .mockups .phone:first-child { display: none; }
+  .mockups .phone.center { transform: none; }
+  .fh-shot .phone, .sample-shot .phone { width: 66vw; max-width: 300px; }
 }
 
 /* ---------- Section scaffolding ---------- */
