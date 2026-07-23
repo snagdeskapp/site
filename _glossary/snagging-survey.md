@@ -1,6 +1,6 @@
 ---
 term: "Snagging survey"
-title: "Snagging Survey: What It Is and Who Does It | SnagDesk Glossary"
+title: "Snagging Survey: What It Is | SnagDesk Glossary"
 description: "A snagging survey is a formal inspection of a new build, usually by a professional inspector, producing a photographed report of defects for the developer to fix."
 definition: "A snagging survey is a formal inspection of a property, usually a new build, that produces a photographed and located report of defects for the developer to put right."
 pillar: "/use-cases/new-build-snagging/"

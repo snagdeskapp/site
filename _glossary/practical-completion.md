@@ -1,7 +1,7 @@
 ---
 term: "Practical completion"
 title: "Practical Completion: What It Means | SnagDesk Glossary"
-description: "Practical completion is the point at which works are complete enough for the client to take possession, usually with a snag list attached and the defects period starting."
+description: "Practical completion is when works are complete enough for the client to take possession, with a snag list attached and the defects period starting."
 definition: "Practical completion is the point at which the works are complete enough for the client to take possession of the building, even though minor defects may remain."
 pillar: "/use-cases/handover-snagging/"
 pillar_name: "handover snagging guide"
