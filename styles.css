@@ -373,25 +373,9 @@ a.feature:hover .arrow { transform: translateX(3px); color: var(--brand); }
 
 /* ---------- Sample report ---------- */
 .sample { text-align: center; }
-.report-frame {
-  max-width: 440px;
-  margin: 0 auto;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 14px;
-  box-shadow: var(--shadow-md);
-}
-.report-frame img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 60%;
-  border-radius: 12px;
-  display: block;
-  border: 1px solid var(--border);
-}
-.sample .note { color: var(--text-subtle); font-size: 14px; margin-top: 20px; }
+.sample-shot { display: flex; justify-content: center; }
+.sample-shot .phone { width: 286px; }
+.sample .note { color: var(--text-subtle); font-size: 14px; margin-top: 24px; }
 
 /* ---------- Who it's for ---------- */
 .who {
